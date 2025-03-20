@@ -1,6 +1,7 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   reactStrictMode: false,
+  basePath: '/tiktok-game',
   webpack: (config) => {
     config.module.rules.push({
       test: /\.proto$/,
@@ -10,7 +11,7 @@ const nextConfig = {
   },
   env: {
     SOCKET_URL: process.env.NODE_ENV === 'production' 
-      ? 'https://your-server-url.herokuapp.com' // سيتم تغيير هذا لاحقاً
+      ? 'https://tiktok-game-app.vercel.app/tiktok-game'
       : 'http://localhost:3000'
   }
 }
