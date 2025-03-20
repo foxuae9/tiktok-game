@@ -1,11 +1,11 @@
 {
   "name": "tiktok-game",
   "version": "0.1.0",
-  "private": false,
+  "private": true,
   "scripts": {
-    "dev": "node server.js",
-    "build": "next build",
-    "start": "node server.js",
+    "dev": "next dev",
+    "build": "next build && next export",
+    "start": "next start -p $PORT",
     "lint": "next lint"
   },
   "dependencies": {
