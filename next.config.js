@@ -11,7 +11,7 @@ const nextConfig = {
   },
   env: {
     SOCKET_URL: process.env.NODE_ENV === 'production' 
-      ? 'https://tiktok-game-app.vercel.app/tiktok-game'
+      ? 'wss://tiktok-game-app.vercel.app'
       : 'http://localhost:3000'
   }
 }

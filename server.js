@@ -1,7 +1,14 @@
 const express = require('express');
 const app = express();
 const http = require('http').createServer(app);
-const io = require('socket.io')(http);
+const io = require('socket.io')(http, {
+  path: '/socket.io',
+  cors: {
+    origin: '*',
+    methods: ['GET', 'POST']
+  },
+  transports: ['websocket', 'polling']
+});
 const { WebcastPushConnection } = require('tiktok-live-connector');
 const next = require('next');
 
@@ -115,6 +122,10 @@ io.on('connection', (socket) => {
     socket.on('resetStats', () => {
         totalLikes = 0;
         io.emit('statsReset');
+    });
+
+    socket.on('disconnect', () => {
+        console.log('Client disconnected');
     });
 });
 
